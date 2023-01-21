@@ -43,6 +43,11 @@ Quisque egestas convallis ipsum, ut sollicitudin risus tincidunt a. Maecenas int
   + Section
     * Paragraph
 
+This also works: 
+- Chapter
+  - Section
+    - Paragraph
+
 ### ToDo list
 
 - [ ] Job
@@ -65,6 +70,7 @@ Moon
 ## Prompts
 
 > An example showing the `tip` type prompt.
+> `bug`: this line will be on the same line as the previous.
 {: .prompt-tip }
 
 > An example showing the `info` type prompt.
