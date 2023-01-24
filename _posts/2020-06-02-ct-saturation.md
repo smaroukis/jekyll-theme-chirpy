@@ -1,13 +1,13 @@
 ---
-title: Current Transformers for Protective Relaying -- Saturation and Knee Point Explained
+title: "Current Transformers for Protective Relaying: Saturation and Knee Point Explained"
 excerpt: "A graphical explanation of magnetic saturation, knee point demonstration and voltage ratings of CTs"
 categories: [Engineering, Power Systems]
 tags: [technical-post, power-systems, electrical-engineering]
 math: true
 img_path: /assets/img/
-status: done
+image:
+  path: excitation_curve_ann.png
 ---
-
 
 Current transformers (CTs) are one of the most important devices in a power system, yet it took me a few years in the industry to find a proper explanation of CT saturation and the meaning "knee point" of the excitation curve.  The knee point is not the point of saturation — the point of saturation corresponds to a volt-time area since the flux is given by the integration of the voltage waveform. Although it is desired to operate in the linear region below the knee, where the excitation current is small compared to the current through the secondary burden, CTs often operate beyond this knee point for relaying applications due to asymmetrical fault currents, remanence flux, and design constraints. 
 
@@ -18,8 +18,9 @@ Current transformers (CTs) are one of the most important devices in a power syst
 Transformers operate on the fundamental principle that a time-varying magnetic flux induces a voltage to oppose it (Faraday's Law). A current through a primary winding creates a magnetic field (H-field) which induces an amount of flux depending on the magnetic properties of the material, the excitation level and the number of turns of coil around the secondary. 
 
 > Note: load must be connected for current to flow. Never open circuit a CT.
-![window_ct](window_ct.png)
 
+![window_ct](window_ct.png)
+*Example flux paths of a time varying current of a primary winding inducing a secondary current.*
 
 $$e=N\frac{d\phi}{dt}$$
 
@@ -30,15 +31,14 @@ The magnetic atoms in the magnetic core material react in a non-linear fashion w
 Also note that $$d\phi/dI$$ represents the magnetizing inductance of the core. 
 
 ![excitation](excitation.gif)
-The B-H curve of a current transformer core for varying levels of excitation[^Zocholl].
+*The B-H curve of a current transformer core for varying levels of excitation[^Zocholl].*
 
 To understand the above graph we need the equivalent circuit of the current transformer.
 
 ## Equivalent Circuit
 
-![ct_equivalent_circuit](ct_equivalent_circuit.png){: width="400"}
-
-Equivalent circuit of current transformer. Note the exciting branch is made up of a varying reactive magnetizing impedance and resistive losses.
+![ct_equivalent_circuit](ct_equivalent_circuit.png)
+*Equivalent circuit of current transformer. Note the exciting branch is made up of a varying reactive magnetizing impedance and resistive losses.*
 
 Since the primary turns is 1, the burden appears on the primary as a very small impedance ($Z_B'=Z_B \cdot 1/N_2^2$)
 
@@ -50,15 +50,13 @@ The magnetization current lags the exciting voltage by 90 degrees and the losses
 
 Simplifying the equivalent circuit above, the secondary can be represented as a current source from the ideal transformer where $I_{sec}=I_{pri} \cdot N_1/N_2$. This current is "fixed" depending on the primary current — the excitation voltage will be developed due to the connected burden, secondary resistance and leakage impedance. 
 
-![excitation](excitation.gif){: width="400"}
-
-A simplified secondary CT equivalent with animation of different excitation levels: 1) the current source is a reflection of the primary current 2) since the magnetizing impedance dominates the losses, we just show Zm 3) ) leakage reactance is negligible for Class C CTs.  At low excitation (green), the majority of current flows through the small magnetizing impedance to generate the magnetic field. At moderate levels of excitation (orange) most of the secondary current flows through the burden. At high levels of excitation (red) the magnetizing impedance switches between an open and a short during different values of the sinusoidal current and resulting B-H curve.
+![ct_secondary_equivalent_excitation](ct_secondary_equivalent_excitation.gif)
+*A simplified secondary CT equivalent with animation of different excitation levels: 1) the current source is a reflection of the primary current 2) since the magnetizing impedance dominates the losses, we just show Zm 3) ) leakage reactance is negligible for Class C CTs.  At low excitation (green), the majority of current flows through the small magnetizing impedance to generate the magnetic field. At moderate levels of excitation (orange) most of the secondary current flows through the burden. At high levels of excitation (red) the magnetizing impedance switches between an open and a short during different values of the sinusoidal current and resulting B-H curve.*
 
 > An increase in burden impedance at a given current will demand an increase in excitation voltage.
 
 ![ct_equivalent_circuit_phasors](ct_equivalent_circuit_phasors.png){: width="400"}
-
-Phasor diagram of CT secondary with standard burden of 0.5 power factor (60 degrees). Take the secondary current and add the voltage drop from the leakage reactance and winding impedance. This voltage plus the secondary terminal voltage equals the excitation voltage. The flux and magnetizing current lag this voltage by 90 degrees.[^c37]
+*Phasor diagram of CT secondary with standard burden of 0.5 power factor (60 degrees). Take the secondary current and add the voltage drop from the leakage reactance and winding impedance. This voltage plus the secondary terminal voltage equals the excitation voltage. The flux and magnetizing current lag this voltage by 90 degrees.[^c37]*
 
 ## The Volt-Time Area
 
@@ -124,7 +122,7 @@ Almost all CTs used in protective relaying are class C or K
 **Gapped cores**
 An air gap can be added to the core which 1) increases magnetizing current and 2) reduces the possibility of remanence. Large-gapped cores are known as linearized cores; the effect is to increase the linear region of the BH curve & decrease the permeability (lower magnetizing impedance). 
 
-![core_gap_effect](core_gap_effect.gif)
+![core_gap_effect](core_gap_effect.gif){: width="300"}
 An air gap can be introduce to extend the linear region of the B-H curve at the expense of reduced permeability.
 
 ## Further Reading

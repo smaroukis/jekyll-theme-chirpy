@@ -1,20 +1,21 @@
 ---
-title: Asymmetrical Fault Current
+title: "Asymmetrical Fault Current: Worst Case Factor Derivation"
 excerpt: "Overview of asymmetrical fault currents and curve of asymmetry factor back-calculation"
 categories: [Engineering, Power Systems]
 tags: [technical-post, power-systems, electrical-engineering]
 math: true
 img_path: /assets/img/
-status: done 
+image:
+  path: asym-current.png
 ---
 
 In selecting equipment and designing protection schemes, a common worst case value of asymmetrical fault current used is 1.6 times the fault duty. I wanted to explore mathematically where this came from and graph the results for various system X and R values. This blog post is the result.
 
 ## The Origins of a DC Offset
 
-> Asymmetry in fault currents due to the inductive nature of power systems results in higher-than-normal transient conditions that may exceed the interrupting rating of devices or cause saturation of relaying CTs (and thus device misoperation).
+> Asymmetry in fault currents due to the inductive nature of power systems results in higher-than-normal transient conditions that may exceed the interrupting rating of devices or cause saturation of relaying CTs (and thus device mis-operation).
 
-Asymmetrical fault currents are AC fault currents with a DC offset that quickly decays to zero. The result is higher than normal fault currents that may exceed the interrupting rating of devices or cause saturation of relaying CTs on protective devices. Asymmetry occurs to some degree in all three-phase faults since all phase currents cannot be 0 at the same time. Conversely, line-to-ground are mostly symmetric, since insulator failure or flashoiver usually occurs near voltage peaks (zero-current crossing for naturally reactive systems)[^1]. Here we'll talk about asymmetric currents out on the distribution system, far from a generator, so we won't be taking into account the generator subtransient, transient, and steady state impedances.
+Asymmetrical fault currents are AC fault currents with a DC offset that quickly decays to zero. The result is higher than normal fault currents that may exceed the interrupting rating of devices or cause saturation of relaying CTs on protective devices. Asymmetry occurs to some degree in all three-phase faults since all phase currents cannot be 0 at the same time. Conversely, line-to-ground are mostly symmetric, since insulator failure or flashover usually occurs near voltage peaks (zero-current crossing for naturally reactive systems)[^1]. Here we'll talk about asymmetric currents out on the distribution system, far from a generator, so we won't be taking into account the generator sub-transient, transient, and steady state impedances.
 
 > Asymmetry occurs to some degree in __all three-phase__ faults since all three-phase currents cannot be 0 simultaneously.
 
@@ -23,11 +24,10 @@ The asymmetry, with respect to the zero axis of the sinusoidal current, arises f
 1. Current must lag voltage by the system phase angle (90° for purely reactive systems)
 2. Current cannot change instantaneously across an inductance (and both large conductors and large machines are inductive)
 
-Asymmetrical current can be broken into both a purely symmetrical AC component and a purely aperiodic DC component. The AC component is symmetrical about the y-axis. The DC component is exponentially decaying with a time constant proportional to X/R. The initial magnitude of the DC current depends on the time of occurence due to the closing phase angle determined by the offset from the zero-crossing of the voltage waveform and the system phase angle, $\theta=\tan^{-1}(X/R)$.
+Asymmetrical current can be broken into both a purely symmetrical AC component and a purely aperiodic DC component. The AC component is symmetrical about the y-axis. The DC component is exponentially decaying with a time constant proportional to X/R. The initial magnitude of the DC current depends on the time of occurrence due to the closing phase angle determined by the offset from the zero-crossing of the voltage waveform and the system phase angle, $\theta=\tan^{-1}(X/R)$.
 
 ![A basic asymmetrical current waveform](asym-current.png)
-
-The asymmetrical waveform is the sum of the DC and AC components. In a power system, it will develop from zero as shown.
+*The asymmetrical waveform is the sum of the DC and AC components. In a power system, it will develop from zero as shown.*
 
 ## Case: Inductive System, 
 
