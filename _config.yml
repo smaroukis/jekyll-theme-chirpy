@@ -14,7 +14,7 @@ lang: en
 
 
 # Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
-timezone:
+timezone: Asia/Tokyo
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
@@ -27,7 +27,7 @@ description: >-                        # used by seo meta and the atom feed
   The blog of Spencer Maroukis
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: 'https://blog.maroukis.net'
+url: https://smaroukis.github.io # CNAME is configured in the github API
 
 github:
   username: smaroukis
@@ -42,7 +42,7 @@ social:
   email: 
   links:
     # The first element serves as the copyright owner's link
-    - http://www.maroukis.me # TODO update to https
+    - https://www.maroukis.net
     - https://twitter.com/that_marouk_ish
     - https://github.com/smaroukis
     - https://www.linkedin.com/in/spencermaroukis
